@@ -9,13 +9,14 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   ros_type_introspection
   tf2
+  tf2_ros
   topic_tools
 )
 
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES udp_bridge
-  CATKIN_DEPENDS geometry_msgs roscpp ros_type_introspection tf2 topic_tools
+  CATKIN_DEPENDS geometry_msgs roscpp ros_type_introspection tf2 tf2_ros topic_tools
 #  DEPENDS system_lib
 )
 
@@ -29,3 +30,6 @@ target_link_libraries(quat_to_rpy ${catkin_LIBRARIES})
 
 add_executable(rpy_to_hpr_degrees src/rpy_to_hpr_degrees.cpp)
 target_link_libraries(rpy_to_hpr_degrees ${catkin_LIBRARIES})
+
+add_executable(publish_transform src/publish_transform.cpp)
+target_link_libraries(publish_transform ${catkin_LIBRARIES})
